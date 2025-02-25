@@ -17,6 +17,7 @@ export default function ProjectPage() {
   const nextProject = Projects[nextIndex];
 
   const elementRef = useRef<HTMLDivElement | null>(null);
+  const [crossed, setCrossed] = useState(false);
 
   useEffect(() => {
     if (!elementRef.current) return;
@@ -25,12 +26,7 @@ export default function ProjectPage() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            var d = document.getElementById("content");
-            if (d) {
-              d.className += "overlay";
-            }
-            window.scrollTo(0, 0);
-            router.push(nextProject.card.slug);
+            setCrossed(true);
           }
         });
       },
@@ -44,7 +40,15 @@ export default function ProjectPage() {
     observer.observe(elementRef.current);
 
     return () => observer.disconnect();
-  }, [nextProject.card.slug]);
+  }, []);
+
+  useEffect(() => {
+    if (crossed) {
+      console.log("Navigated to: " + nextProject.card.title);
+      router.push(nextProject.card.slug);
+      window.scrollTo(0, 0);
+    }
+  }, [crossed]);
 
   if (projectIndex === -1) {
     return (
