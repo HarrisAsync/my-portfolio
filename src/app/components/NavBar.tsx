@@ -5,7 +5,7 @@ import { AiFillLinkedin } from "react-icons/ai";
 
 const NavBar = () => {
   return (
-    <div style={{ color: "#1944D0" }}>
+    <div>
       <div className="navbar">
         <div className="navbar-start">
           <Link href="/">

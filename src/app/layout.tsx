@@ -37,19 +37,16 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="bg-white">
+      <body className="bg-white" style={{ color: "#1944D0" }}>
         <div className="px-10">
           <NavBar />
           {children}
           <Analytics />
-          <footer
-            className="py-10 text-center bottom-0 space-y-2"
-            style={{ color: "#1944D0" }}
-          >
+          <footer className="py-10 text-center bottom-0 space-y-2">
             <p className="font-space">
               Site built with Nextjs, Typescript & Tailwind CSS. © 2025.
             </p>
-            <p className="font-hubot text-xs">Last update: 17/02/2025</p>
+            <p className="font-hubot text-xs">Last update: 25/02/2025</p>
           </footer>
         </div>
       </body>

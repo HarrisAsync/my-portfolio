@@ -31,7 +31,7 @@ const ProjectsPage = () => {
         style={{ color: "#1944D0" }}
       >{`{ABOUT ME}`}</p>
       <p
-        className="font-hubot mt-10 text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl w-3/4"
+        className="font-hubot mt-10 text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl w-100 md:w-3/4"
         style={{ color: "#1944D0" }}
       >
         I&apos;m Harris Perdis, a junior software developer with a strong

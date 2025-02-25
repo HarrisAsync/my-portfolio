@@ -56,8 +56,8 @@ export default function ProjectPage() {
 
   return (
     <div id="content">
-      <div className="py-10 max-w-5xl mx-auto" style={{ color: "#1944D0" }}>
-        <div className="mb-10" style={{ color: "#1944D0" }}>
+      <div className="py-10 max-w-5xl mx-auto">
+        <div className="mb-10">
           <Link href="/#portfolio">
             <button>
               <h1
@@ -142,24 +142,15 @@ export default function ProjectPage() {
                     <>
                       {cell.paragraph.title ? (
                         <div>
-                          <p
-                            className="font-space text-sm pb-2"
-                            style={{ color: "#1944D0" }}
-                          >
+                          <p className="font-space text-sm pb-2">
                             {`{${cell.paragraph.title}}`}
                           </p>
-                          <p
-                            className="font-hubot text-lg"
-                            style={{ color: "#1944D0" }}
-                          >
+                          <p className="font-hubot text-lg">
                             {cell.paragraph.body}
                           </p>
                         </div>
                       ) : (
-                        <p
-                          className="font-hubot text-lg"
-                          style={{ color: "#1944D0" }}
-                        >
+                        <p className="font-hubot text-lg">
                           {cell.paragraph.body}
                         </p>
                       )}
@@ -171,10 +162,7 @@ export default function ProjectPage() {
           ))}
           {projectIndex !== nextIndex && (
             <div className="mt-32">
-              <hr
-                className="h-px border-0"
-                style={{ backgroundColor: "#1944D0" }}
-              ></hr>
+              <hr className="h-px border-0"></hr>
               <p className="font-hubot text-xl pt-1">Next Project</p>
               <p className="font-hubot text-sm">Scroll to View</p>
               <div className="relative pb-5 mt-20">

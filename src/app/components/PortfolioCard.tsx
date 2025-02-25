@@ -8,10 +8,7 @@ interface Props {
 
 function PortfolioCard({ project }: Props) {
   return (
-    <div
-      className="card outline outline-1 rounded-2xl"
-      style={{ color: "#1944D0" }}
-    >
+    <div className="card outline outline-1 rounded-2xl">
       <Link href={`portfolio/${project.card.slug}`}>
         <figure className="rounded-t-2xl">
           <Image
