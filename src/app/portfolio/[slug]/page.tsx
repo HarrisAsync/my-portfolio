@@ -27,7 +27,7 @@ export default function ProjectPage() {
     window.innerHeight || 0
   );
 
-  let disabledScrollToView = true;
+  let disabledScrollToView = false;
 
   useEffect(() => {
     if (!elementRefBelow.current) return;
@@ -37,7 +37,6 @@ export default function ProjectPage() {
         entries.forEach((entry) => {
           if (
             entry.isIntersecting &&
-            !isTouch &&
             project.contentHeight - 100 > vh &&
             !disabledScrollToView
           ) {
@@ -98,8 +97,17 @@ export default function ProjectPage() {
   }, [crossedAbove]);
 
   useEffect(() => {
-    window.scroll({ top: 0 });
-  }, [project]);
+    const scrollToTop = () => {
+      if (window.scrollY > 100) {
+        window.scrollTo(0, 0);
+        requestAnimationFrame(scrollToTop);
+      }
+    };
+
+    if (!crossedAbove && crossedBelow) {
+      requestAnimationFrame(scrollToTop);
+    }
+  }, [project, crossedAbove, crossedBelow]);
 
   if (projectIndex === -1) {
     return (
