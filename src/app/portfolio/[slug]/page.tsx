@@ -37,6 +37,7 @@ export default function ProjectPage() {
         entries.forEach((entry) => {
           if (
             entry.isIntersecting &&
+            !isTouch &&
             project.contentHeight - 100 > vh &&
             !disabledScrollToView
           ) {
