@@ -17,9 +17,32 @@ export default function ProjectPage() {
   const nextProject = Projects[nextIndex];
 
   const elementRefBelow = useRef<HTMLDivElement | null>(null);
+  const elementRefBack = useRef<HTMLDivElement | null>(null);
   const elementRefAbove = useRef<HTMLDivElement | null>(null);
   const [crossedBelow, setCrossedBelow] = useState(false);
   const [crossedAbove, setCrossedAbove] = useState(false);
+
+  useEffect(() => {
+    if (!elementRefBack.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setCrossedBelow(true);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0,
+      }
+    );
+
+    observer.observe(elementRefBack.current);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!elementRefBelow.current) return;
@@ -264,12 +287,13 @@ export default function ProjectPage() {
                 />
               </div>
               <div className="flex justify-center my-10">
-                <Link href={"/"}>
+                <Link href={"/#portfolio"}>
                   <button className="outline outline-1 rounded py-1 px-1 font-space">
                     {"< Back to Projects"}
                   </button>
                 </Link>
               </div>
+              <div ref={elementRefBack} className="p-36"></div>
             </div>
           )}
         </div>
