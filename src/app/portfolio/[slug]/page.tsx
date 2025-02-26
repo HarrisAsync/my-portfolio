@@ -287,9 +287,9 @@ export default function ProjectPage() {
                 />
               </div>
               <div className="flex justify-center my-10">
-                <Link href={"/#portfolio"}>
+                <Link href={"/portfolio/" + nextProject.card.slug}>
                   <button className="outline outline-1 rounded py-1 px-1 font-space">
-                    {"< Back to Projects"}
+                    {"< View Project"}
                   </button>
                 </Link>
               </div>
