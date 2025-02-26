@@ -4,51 +4,89 @@ import Projects from "../data";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 
 export default function ProjectPage() {
   const { slug } = useParams();
-  const router = useRouter();
 
-  const projectIndex = Projects.findIndex((p) => p.card.slug === slug);
+  const [projectIndex, setProjectIndex] = useState(
+    Projects.findIndex((p) => p.card.slug === slug)
+  );
   const project = Projects[projectIndex];
 
   const nextIndex = (projectIndex + 1) % Projects.length;
   const nextProject = Projects[nextIndex];
 
-  const elementRef = useRef<HTMLDivElement | null>(null);
-  const [crossed, setCrossed] = useState(false);
+  const elementRefBelow = useRef<HTMLDivElement | null>(null);
+  const elementRefAbove = useRef<HTMLDivElement | null>(null);
+  const [crossedBelow, setCrossedBelow] = useState(false);
+  const [crossedAbove, setCrossedAbove] = useState(false);
 
   useEffect(() => {
-    if (!elementRef.current) return;
+    if (!elementRefBelow.current) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setCrossed(true);
+            setCrossedBelow(true);
           }
         });
       },
       {
         root: null,
         rootMargin: "0px",
-        threshold: 0.5,
+        threshold: 0.2,
       }
     );
 
-    observer.observe(elementRef.current);
-
+    observer.observe(elementRefBelow.current);
     return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
-    if (crossed) {
-      console.log("Navigated to: " + nextProject.card.title);
-      router.push(nextProject.card.slug);
-      window.scrollTo(0, 0);
+    if (!elementRefAbove.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setCrossedAbove(true);
+          } else {
+            setCrossedAbove(false);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 1,
+      }
+    );
+
+    observer.observe(elementRefAbove.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (crossedBelow) {
+      window.history.replaceState(
+        null,
+        "",
+        "/portfolio/" + nextProject.card.slug
+      );
+      setProjectIndex(nextIndex);
     }
-  }, [crossed]);
+  }, [crossedBelow]);
+
+  useEffect(() => {
+    if (crossedAbove) {
+      setCrossedBelow(false);
+    }
+  }, [crossedAbove]);
+
+  useEffect(() => {
+    window.scroll({ top: 0, behavior: "smooth" });
+  }, [projectIndex]);
 
   if (projectIndex === -1) {
     return (
@@ -117,14 +155,15 @@ export default function ProjectPage() {
               </tbody>
             </table>
           </div>
-
-          <Image
-            className="m-auto pb-5"
-            width={project.headLineImage.width}
-            height={project.headLineImage.height}
-            src={project.headLineImage.url}
-            alt="image"
-          />
+          <div ref={elementRefAbove}>
+            <Image
+              className="m-auto pb-5"
+              width={project.headLineImage.width}
+              height={project.headLineImage.height}
+              src={project.headLineImage.url}
+              alt="image"
+            />
+          </div>
 
           {project.rows.map((row, rowIndex) => (
             <div
@@ -165,8 +204,11 @@ export default function ProjectPage() {
             </div>
           ))}
           {projectIndex !== nextIndex && (
-            <div className="mt-32">
-              <hr className="h-px border-0"></hr>
+            <div id="nextProject" className="mt-32">
+              <hr
+                className="h-px border-0"
+                style={{ backgroundColor: "#1944D0" }}
+              ></hr>
               <p className="font-hubot text-xl pt-1">Next Project</p>
               <p className="font-hubot text-sm">Scroll to View</p>
               <div className="relative pb-5 mt-20">
@@ -212,7 +254,7 @@ export default function ProjectPage() {
                   </tbody>
                 </table>
               </div>
-              <div ref={elementRef}>
+              <div ref={elementRefBelow}>
                 <Image
                   className="m-auto"
                   width={nextProject.headLineImage.width}
@@ -220,6 +262,13 @@ export default function ProjectPage() {
                   src={nextProject.headLineImage.url}
                   alt="image"
                 />
+              </div>
+              <div className="flex justify-center my-10">
+                <Link href={"/"}>
+                  <button className="outline outline-1 rounded py-1 px-1 font-space">
+                    {"< Back to Projects"}
+                  </button>
+                </Link>
               </div>
             </div>
           )}
