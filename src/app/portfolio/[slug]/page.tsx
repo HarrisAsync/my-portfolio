@@ -21,13 +21,26 @@ export default function ProjectPage() {
   const [crossedBelow, setCrossedBelow] = useState(false);
   const [crossedAbove, setCrossedAbove] = useState(false);
 
+  let isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  let vh = Math.max(
+    document.documentElement.clientHeight || 0,
+    window.innerHeight || 0
+  );
+
+  let disabledScrollToView = true;
+
   useEffect(() => {
     if (!elementRefBelow.current) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (
+            entry.isIntersecting &&
+            !isTouch &&
+            project.contentHeight - 100 > vh &&
+            !disabledScrollToView
+          ) {
             setCrossedBelow(true);
           }
         });
@@ -86,7 +99,7 @@ export default function ProjectPage() {
 
   useEffect(() => {
     window.scroll({ top: 0 });
-  }, [projectIndex]);
+  }, [project]);
 
   if (projectIndex === -1) {
     return (
@@ -266,7 +279,7 @@ export default function ProjectPage() {
               <div className="flex justify-center my-10">
                 <Link href={"/portfolio/" + nextProject.card.slug}>
                   <button className="outline outline-1 rounded py-1 px-1 font-space">
-                    {"< View Project"}
+                    {"View Project"}
                   </button>
                 </Link>
               </div>
