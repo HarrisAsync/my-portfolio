@@ -21,79 +21,73 @@ export default function ProjectPage() {
   const [crossedBelow, setCrossedBelow] = useState(false);
   const [crossedAbove, setCrossedAbove] = useState(false);
 
-  var vh = Math.max(
-    document.documentElement.clientHeight || 0,
-    window.innerHeight || 0
-  );
+  useEffect(() => {
+    if (!elementRefBelow.current) return;
 
-  if (vh < project.contentHeight - 500) {
-    useEffect(() => {
-      if (!elementRefBelow.current) return;
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setCrossedBelow(true);
-            }
-          });
-        },
-        {
-          root: null,
-          rootMargin: "0px",
-          threshold: 0.75,
-        }
-      );
-
-      observer.observe(elementRefBelow.current);
-      return () => observer.disconnect();
-    }, []);
-
-    useEffect(() => {
-      if (!elementRefAbove.current) return;
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setCrossedAbove(true);
-            } else {
-              setCrossedAbove(false);
-            }
-          });
-        },
-        {
-          root: null,
-          rootMargin: "0px",
-          threshold: 1,
-        }
-      );
-
-      observer.observe(elementRefAbove.current);
-      return () => observer.disconnect();
-    }, []);
-
-    useEffect(() => {
-      if (crossedBelow) {
-        window.history.replaceState(
-          null,
-          "",
-          "/portfolio/" + nextProject.card.slug
-        );
-        setProjectIndex(nextIndex);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setCrossedBelow(true);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.75,
       }
-    }, [crossedBelow]);
+    );
 
-    useEffect(() => {
-      if (crossedAbove) {
-        setCrossedBelow(false);
+    observer.observe(elementRefBelow.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!elementRefAbove.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setCrossedAbove(true);
+          } else {
+            setCrossedAbove(false);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 1,
       }
-    }, [crossedAbove]);
+    );
 
-    useEffect(() => {
-      window.scroll({ top: 0 });
-    }, [projectIndex]);
-  }
+    observer.observe(elementRefAbove.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (crossedBelow) {
+      window.history.replaceState(
+        null,
+        "",
+        "/portfolio/" + nextProject.card.slug
+      );
+      setProjectIndex(nextIndex);
+    }
+  }, [crossedBelow]);
+
+  useEffect(() => {
+    if (crossedAbove) {
+      setCrossedBelow(false);
+    }
+  }, [crossedAbove]);
+
+  useEffect(() => {
+    window.scroll({ top: 0 });
+  }, [projectIndex]);
+
   if (projectIndex === -1) {
     return (
       <div className="flex justify-center items-center text-xl font-hubot p-6 sm:p-12 md:p-24 lg:p-32 xl:p-48">
