@@ -10,6 +10,7 @@ export default interface ProjectDTO {
   links: NameLinkDTO[];
   headLineImage: ImageType;
   rows: Row[];
+  contentHeight: number;
 }
 
 export interface Row {

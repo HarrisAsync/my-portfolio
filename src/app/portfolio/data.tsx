@@ -14,6 +14,7 @@ const tags = [
 const vicCameraLocationsData: ProjectDTO = {
   name: "vic-camera-locations",
   type: "Python API",
+  contentHeight: 4531,
   headLineImage: {
     url: "/vic-camera-site.png",
     width: 1400,
@@ -154,6 +155,7 @@ const vicCameraLocationsData: ProjectDTO = {
 const drowzalert: ProjectDTO = {
   name: "drowzalert",
   type: "Hackathon",
+  contentHeight: 4998,
   headLineImage: {
     url: "/drowzalert.jpeg",
     width: 1920,
