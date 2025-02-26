@@ -26,8 +26,10 @@ export default function ProjectPage() {
     document.documentElement.clientHeight || 0,
     window.innerHeight || 0
   );
+  let manualDisabledScrollToView = false;
 
-  let disabledScrollToView = false;
+  let disabledScrollToView =
+    !isTouch && project.contentHeight - 100 > vh && !manualDisabledScrollToView;
 
   useEffect(() => {
     if (!elementRefBelow.current) return;
@@ -35,12 +37,7 @@ export default function ProjectPage() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (
-            entry.isIntersecting &&
-            !isTouch &&
-            project.contentHeight - 100 > vh &&
-            !disabledScrollToView
-          ) {
+          if (entry.isIntersecting && disabledScrollToView) {
             setCrossedBelow(true);
           }
         });
@@ -232,7 +229,9 @@ export default function ProjectPage() {
                 style={{ backgroundColor: "#1944D0" }}
               ></hr>
               <p className="font-hubot text-xl pt-1">Next Project</p>
-              <p className="font-hubot text-sm">Scroll to View</p>
+              {disabledScrollToView && (
+                <p className="font-hubot text-sm">Scroll to View</p>
+              )}
               <div className="relative pb-5 mt-20">
                 <p className="font-space text-md">{`{${nextProject.type}}`}</p>
                 <h1 className="font-space text-5xl mt-2">{nextProject.name}</h1>
