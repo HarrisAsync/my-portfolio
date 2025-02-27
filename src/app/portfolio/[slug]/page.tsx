@@ -29,7 +29,7 @@ export default function ProjectPage() {
   let manualDisabledScrollToView = false;
 
   let disabledScrollToView =
-    !isTouch && project.contentHeight - 100 > vh && !manualDisabledScrollToView;
+    !isTouch && project.contentHeight + 100 > vh && !manualDisabledScrollToView;
 
   useEffect(() => {
     if (!elementRefBelow.current) return;
