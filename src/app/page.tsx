@@ -60,6 +60,7 @@ const ProjectsPage = () => {
           <p>» Entity Framework</p>
           <p>» SQL Mangement Studio</p>
           <p>» Git</p>
+          <p>» Azure Functions</p>
         </div>
         <div className="flex-col pt-5 pl-0 md:pt-0 md:pl-5 font-space">
           <p>[Languages]</p>
