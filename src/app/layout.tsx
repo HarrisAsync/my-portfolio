@@ -42,7 +42,7 @@ export default function RootLayout({
           <NavBar />
           {children}
           <Analytics />
-          <footer className="py-10 bottom-0 space-y-2">
+          <footer className="py-10 text-center bottom-0 space-y-2">
             <p className="font-space">
               Site built with Nextjs, Typescript & Tailwind CSS. © 2025.
             </p>
