@@ -70,6 +70,22 @@ const ProjectsPage = () => {
           <p>» SQL</p>
         </div>
       </div>
+      <p
+        className="font-space my-10 text-xl"
+        style={{ color: "#1944D0" }}
+      >{`{CONTACT}`}</p>
+      <div
+        className="flex-none md:flex text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl"
+        style={{ color: "#1944D0" }}
+      >
+        <div className="flex-col font-space">
+          <p>
+            <a href="mailto:harrisperdis@outlook.com">
+              harrisperdis@outlook.com
+            </a>
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
