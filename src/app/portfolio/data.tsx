@@ -51,6 +51,25 @@ const vicCameraLocationsData: ProjectDTO = {
           paragraph: {
             title: "Project Description",
             body: "This project outlines roads within Victoria, Australia where mobile speed and seatbelt / phone cameras are possibly parked or stationed. The official vic roads website is typically updated monthly, with excel sheets which contain the columns road and suburb. Our website periodically scrapes and transforms that data into coordinates to display them on a map.",
+            size: "text-2xl",
+          },
+        },
+      ],
+    },
+    {
+      cells: [
+        {
+          image: {
+            url: "/vic-camera-site-mobile-camera.webp",
+            width: 1200,
+            height: 673,
+          },
+        },
+        {
+          image: {
+            url: "/vic-camera-site-mobile-speed-camera.jpeg",
+            width: 1200,
+            height: 674,
           },
         },
       ],
@@ -76,6 +95,18 @@ const vicCameraLocationsData: ProjectDTO = {
         },
       ],
     },
+
+    {
+      cells: [
+        {
+          image: {
+            url: "/vic-camera-site-redline.png",
+            width: 2880,
+            height: 1800,
+          },
+        },
+      ],
+    },
     {
       cells: [
         {
@@ -96,13 +127,6 @@ const vicCameraLocationsData: ProjectDTO = {
     },
     {
       cells: [
-        {
-          image: {
-            url: "/vic-camera-site-redline.png",
-            width: 2880,
-            height: 1800,
-          },
-        },
         {
           image: {
             url: "/vic-camera-site-blueline.png",
@@ -196,6 +220,7 @@ const drowzalert: ProjectDTO = {
           paragraph: {
             title: "Hackathon Prize and Placement",
             body: "This project was completed within a Hackathon named UniHack on the Monash Clayton University Campus. Our team won a cash prize and placed 3rd in the onsite awards.",
+            size: "text-2xl",
           },
         },
       ],
@@ -206,11 +231,22 @@ const drowzalert: ProjectDTO = {
           paragraph: {
             title: "Project Description",
             body: "This project utilises a camera to detect closed eyelids as an early sign of drowsiness and fatigue in drivers. Eyelids closed continuously for approximately three seconds (micro-sleep) trigger an alert sound and an automated voice that advises the driver to take a rest. Each such detection would additionally trigger a minor electrical stimulation in the steering wheel that the driver will be in contact with, which is especially useful for drivers with hearing loss. This ensures that they are aware of their state and can take action to prevent accidents.",
+            size: "text-2xl",
           },
         },
       ],
     },
-
+    {
+      cells: [
+        {
+          image: {
+            url: "/drowzalert-eye.jpeg",
+            width: 640,
+            height: 481,
+          },
+        },
+      ],
+    },
     {
       cells: [
         {
@@ -226,13 +262,6 @@ const drowzalert: ProjectDTO = {
         {
           paragraph: {
             body: "These landmarks were formed via a series of points that were tracked through space and specifically mapped to the eyes. The Python libraries, OpenCV (to provide access to the camera and image augmentation) and dlib (to track facial landmarks) were leveraged for this operation.",
-          },
-        },
-        {
-          image: {
-            url: "/drowzalert-eye.jpeg",
-            width: 640,
-            height: 481,
           },
         },
       ],
@@ -272,15 +301,19 @@ const drowzalert: ProjectDTO = {
     {
       cells: [
         {
+          paragraph: {
+            body: "The alert sound and generated voice were then integrated asynchronously into the application to activate upon detecting drowsy closed eyes. Further, the laptop’s Bluetooth was set up to communicate with an electrical stimulator.",
+          },
+        },
+      ],
+    },
+    {
+      cells: [
+        {
           image: {
             url: "/vic-camera-site-car.png",
             width: 2880,
             height: 1800,
-          },
-        },
-        {
-          paragraph: {
-            body: "The alert sound and generated voice were then integrated asynchronously into the application to activate upon detecting drowsy closed eyes. Further, the laptop’s Bluetooth was set up to communicate with an electrical stimulator.",
           },
         },
       ],

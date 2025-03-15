@@ -25,6 +25,7 @@ export interface Cell {
 export interface ParagraphType {
   title?: string;
   body: string;
+  size?: string;
 }
 
 export interface ImageType {

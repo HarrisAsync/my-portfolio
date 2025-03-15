@@ -45,7 +45,7 @@ export default function ProjectPage() {
       {
         root: null,
         rootMargin: "0px",
-        threshold: 0.75,
+        threshold: 0.5,
       }
     );
 
@@ -207,7 +207,13 @@ export default function ProjectPage() {
                           <p className="font-space text-sm pb-2">
                             {`{${cell.paragraph.title}}`}
                           </p>
-                          <p className="font-hubot text-lg">
+                          <p
+                            className={
+                              cell.paragraph.size
+                                ? "font-hubot " + cell.paragraph.size
+                                : "font-hubot text-lg"
+                            }
+                          >
                             {cell.paragraph.body}
                           </p>
                         </div>
