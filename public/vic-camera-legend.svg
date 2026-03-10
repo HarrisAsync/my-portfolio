@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Vic Camera Legend</title>
+  <desc id="desc">Legend for mobile speed cameras, mobile device and seatbelt cameras, fixed cameras, and reported camera locations.</desc>
+  <rect x="40" y="40" width="1120" height="620" rx="24" fill="#ffffff" stroke="#1944D0" stroke-width="4"/>
+
+  <text x="110" y="145" fill="#1944D0" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="700">
+    Vic Camera Legend
+  </text>
+
+  <line x1="120" y1="245" x2="300" y2="245" stroke="#E53935" stroke-width="18" stroke-linecap="round"/>
+  <text x="340" y="258" fill="#1a1a1a" font-family="Arial, Helvetica, sans-serif" font-size="44">
+    Mobile Speed Camera
+  </text>
+
+  <line x1="120" y1="345" x2="300" y2="345" stroke="#FBC02D" stroke-width="18" stroke-linecap="round"/>
+  <text x="340" y="358" fill="#1a1a1a" font-family="Arial, Helvetica, sans-serif" font-size="44">
+    Mobile Device and Seatbelt Camera
+  </text>
+
+  <circle cx="210" cy="445" r="18" fill="#4CAF50"/>
+  <text x="340" y="458" fill="#1a1a1a" font-family="Arial, Helvetica, sans-serif" font-size="44">
+    Fixed Camera (Red Light and / or Speed)
+  </text>
+
+  <circle cx="210" cy="545" r="18" fill="rgba(100,100,100,0.25)" stroke="#666666" stroke-width="5"/>
+  <text x="340" y="558" fill="#1a1a1a" font-family="Arial, Helvetica, sans-serif" font-size="44">
+    Reported camera location
+  </text>
+</svg>

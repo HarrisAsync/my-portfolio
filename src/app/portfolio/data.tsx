@@ -9,11 +9,14 @@ const tags = [
   "CSS",
   "Azure functions",
   "Fastapi",
+  "Go",
+  "PostgreSQL",
+  "Google Maps",
 ];
 
 const vicCameraLocationsData: ProjectDTO = {
-  name: "vic-camera-locations",
-  type: "Python API",
+  name: "viccam.info",
+  type: "Go API",
   contentHeight: 4531,
   headLineImage: {
     url: "/vic-camera-site.png",
@@ -21,26 +24,23 @@ const vicCameraLocationsData: ProjectDTO = {
     height: 800,
   },
   card: {
-    title: "vic-camera-locations",
+    title: "viccam.info",
     date: "2/2025",
     slug: "vic-camera-locations",
     image: { url: "/vic-camera-site.png", width: 1400, height: 800 },
-    tags: [tags[0], tags[1], tags[3], tags[4], tags[5], tags[6], tags[7]],
+    tags: [tags[8], tags[9], tags[10], tags[3], tags[4], tags[5]],
   },
   date: "2/2025",
-  members: [
-    "Harris Perdis [Software Developer]",
-    "Reuben Cook [Software Developer]",
-  ],
+  members: ["Harris Perdis [Software Developer]"],
   links: [
     {
       name: "GITHUB",
-      link: "https://github.com/HarrisAsync/vic-camera-locations",
+      link: "https://github.com/HarrisAsync/unknown-api",
       private: false,
     },
     {
       name: "WEBSITE",
-      link: "https://vic-roads-cameras.com",
+      link: "https://viccam.info",
       private: false,
     },
   ],
@@ -50,7 +50,7 @@ const vicCameraLocationsData: ProjectDTO = {
         {
           paragraph: {
             title: "Project Description",
-            body: "This project outlines roads within Victoria, Australia where mobile speed and seatbelt / phone cameras are possibly parked or stationed. The official vic roads website is typically updated monthly, with excel sheets which contain the columns road and suburb. Our website periodically scrapes and transforms that data into coordinates to display them on a map.",
+            body: "viccam.info is a live map for Victoria road camera data. The project imports government-published camera resources, resolves each road and suburb entry into map geometry, and displays mobile camera coverage, fixed camera points, and community reports in a single interface.",
             size: "text-2xl",
           },
         },
@@ -79,7 +79,7 @@ const vicCameraLocationsData: ProjectDTO = {
         {
           paragraph: {
             title: "Architecture",
-            body: "The website comprises of three elements: an api built with fastapi, azure function and postgreSQL database. The language used in these elements is python. The azure function performs the scrapping, where it attempts to fetch the url from the vic roads website and subsequently performs a post request to the api. When the api receives the post request, it downloads the excel sheets in memory. There is minimal lenience when selecting and finding the data. If the initial data pattern within the sheet changes, the post endpoint will fail. This was chosen as a result of time constraints.",
+            body: "The current version is built as a Go API with a PostgreSQL database and a lightweight map interface served directly by the backend. Import jobs scrape the source pages, download the latest spreadsheets in memory, normalise the rows, and create versioned imports so the site can always serve the newest dataset.",
           },
         },
       ],
@@ -88,9 +88,9 @@ const vicCameraLocationsData: ProjectDTO = {
       cells: [
         {
           image: {
-            url: "/vic-camera-site-diagram.svg",
-            width: 500,
-            height: 5000,
+            url: "/vic-camera-legend.svg",
+            width: 1200,
+            height: 700,
           },
         },
       ],
@@ -111,7 +111,7 @@ const vicCameraLocationsData: ProjectDTO = {
       cells: [
         {
           paragraph: {
-            body: "Once the data is parsed into arrays, the road and suburb pairs are checked to ensure that they do not currently exist in the database. If they do exist, a request to find the bounding box of the suburb is sent to overpass. Overpass is a free api which contains information for suburbs, roads, landmarks, etc. We then send another request to overpass with the suburb bounding box to retrieve the road line coordinates.",
+            body: "After parsing the source rows, the importer deduplicates the road and suburb pairs and resolves suburb boundaries using Vicmap first, with Overpass as a fallback. Those bounds are then used to fetch road geometry and store successful and failed lookups against each import for later review.",
           },
         },
       ],
@@ -120,7 +120,7 @@ const vicCameraLocationsData: ProjectDTO = {
       cells: [
         {
           paragraph: {
-            body: "Using the google maps api and these road coordinates, we draw on the map blue and red lines to signify either mobile speed and seatbelt / phone cameras, respectively. This page is served statically via the api.",
+            body: "The frontend requests only the latest cameras inside the current map bounds and renders mobile camera roads as coloured overlays, fixed cameras as dots, and user reports as clustered markers. This keeps the map responsive while still showing the newest import timestamp and the latest public reports.",
           },
         },
       ],
@@ -141,7 +141,7 @@ const vicCameraLocationsData: ProjectDTO = {
         {
           paragraph: {
             title: "Team",
-            body: "We completed this project using git for source control and discord for commutation. We worked on a single branch due to a large enough separation of concerns. Reuben Cook, a work colleague, was easy to work with and was knowledgeable. He scripted the database and overpass logic, whilst I scripted the scrapping and post endpoint logic. We primarily worked together on video call after work hours to complete this project.",
+            body: "I completed this project solo using Git for source control and handled the scraper, import flow, API endpoints, and map integration myself. The project brought together data ingestion, geospatial processing, and frontend interaction in a single end-to-end build.",
           },
         },
       ],
@@ -151,7 +151,7 @@ const vicCameraLocationsData: ProjectDTO = {
         {
           paragraph: {
             title: "Challenges",
-            body: "At our workplace, we predominantly work with typed languages, and as we developed and ran the project, we quickly realised the significant benefits of explicit typing. We would find issues only at runtime and therefore spend extra time debugging. We slowly began using explicit typing within python to some extent, but not throughout. There is an ongoing technical challenge with retrieving overpass data, specifically for certain roads or suburbs. This issue results in missing lines on the map. We're actively working on resolving this issue.",
+            body: "A key challenge was dealing with inconsistent public source data and turning it into reliable map results. The importer has to locate the right downloadable resources from changing page markup, geocode fixed camera locations accurately, and fall back between Vicmap and Overpass whenever a suburb or road cannot be resolved cleanly.",
           },
         },
       ],
@@ -160,8 +160,8 @@ const vicCameraLocationsData: ProjectDTO = {
       cells: [
         {
           paragraph: {
-            title: "Future Improvements",
-            body: "In future, we plan to enhance the website by integrating fixed camera points on the map, along with a feature that allows users to report sightings of mobile cameras. The former is currently available on the vic roads official website. This will enable real-time updates and greater accuracy.",
+            title: "Next Step",
+            body: "The next step for this project is to integrate it into a vehicle so the camera data can support an in-car driving experience instead of only being viewed through the website.",
           },
         },
         {
