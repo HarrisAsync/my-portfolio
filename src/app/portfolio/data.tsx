@@ -12,7 +12,7 @@ const tags = [
   "Go",
   "PostgreSQL",
   "Google Maps",
-  "next.js",
+  "Next.js",
   "Payload CMS",
   "Stripe",
 ];
