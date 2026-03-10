@@ -19,15 +19,15 @@ const vicCameraLocationsData: ProjectDTO = {
   type: "Go API",
   contentHeight: 4531,
   headLineImage: {
-    url: "/vic-camera-zoomed.png",
-    width: 1024,
-    height: 584,
+    url: "/vic-camera-site-redline.png",
+    width: 3024,
+    height: 1728,
   },
   card: {
     title: "viccam.info",
     date: "11/2025",
     slug: "vic-camera-locations",
-    image: { url: "/vic-camera-zoomed.png", width: 1024, height: 584 },
+    image: { url: "/vic-camera-site-redline.png", width: 3024, height: 1728 },
     tags: [tags[8], tags[9], tags[10], tags[3], tags[4], tags[5]],
   },
   date: "11/2025",
@@ -143,27 +143,6 @@ const vicCameraLocationsData: ProjectDTO = {
             url: "/vic-camera-site-blueline.png",
             width: 2880,
             height: 1800,
-          },
-        },
-      ],
-    },
-    {
-      cells: [
-        {
-          image: {
-            url: "/vic-camera-site-redline.png",
-            width: 3024,
-            height: 1728,
-          },
-        },
-      ],
-    },
-    {
-      cells: [
-        {
-          paragraph: {
-            title: "Team",
-            body: "I completed this project solo using Git for source control and handled the scraper, import flow, API endpoints, and map integration myself. The project brought together data ingestion, geospatial processing, and frontend interaction in a single end-to-end build.",
           },
         },
       ],
