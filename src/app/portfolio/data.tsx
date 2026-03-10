@@ -88,18 +88,6 @@ const vicCameraLocationsData: ProjectDTO = {
       cells: [
         {
           image: {
-            url: "/vic-camera-legend.png",
-            width: 3024,
-            height: 1726,
-          },
-        },
-      ],
-    },
-
-    {
-      cells: [
-        {
-          image: {
             url: "/vic-camera-site-dots.png",
             width: 3024,
             height: 1724,
@@ -162,7 +150,7 @@ const vicCameraLocationsData: ProjectDTO = {
         {
           paragraph: {
             title: "Next Step",
-            body: "The next step for this project is to integrate it into a vehicle so the camera data can support an in-car driving experience instead of only being viewed through the website.",
+            body: "The next step for this project is to integrate it into a mobile app so the camera data can support an in-car driving experience instead of only being viewed through the website.",
           },
         },
       ],
