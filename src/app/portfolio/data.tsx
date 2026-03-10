@@ -19,18 +19,18 @@ const vicCameraLocationsData: ProjectDTO = {
   type: "Go API",
   contentHeight: 4531,
   headLineImage: {
-    url: "/vic-camera-legend.png",
-    width: 3024,
-    height: 1726,
+    url: "/vic-camera-zoomed.png",
+    width: 1024,
+    height: 584,
   },
   card: {
     title: "viccam.info",
-    date: "2/2025",
+    date: "11/2025",
     slug: "vic-camera-locations",
-    image: { url: "/vic-camera-legend.png", width: 3024, height: 1726 },
+    image: { url: "/vic-camera-zoomed.png", width: 1024, height: 584 },
     tags: [tags[8], tags[9], tags[10], tags[3], tags[4], tags[5]],
   },
-  date: "2/2025",
+  date: "11/2025",
   members: ["Harris Perdis [Software Developer]"],
   links: [
     {
@@ -50,7 +50,7 @@ const vicCameraLocationsData: ProjectDTO = {
         {
           paragraph: {
             title: "Project Description",
-            body: "viccam.info turns public camera data into a map you can actually use while planning a drive in Victoria. The platform combines government camera datasets and live community reports so users can quickly understand what is on their route.",
+            body: "viccam.info turns public camera data into a map you can actually use while planning a drive in Victoria. The platform combines government camera datasets with live community reports so users can quickly understand what is on their route and what has recently been seen nearby.",
             size: "text-2xl",
           },
         },
@@ -120,7 +120,7 @@ const vicCameraLocationsData: ProjectDTO = {
       cells: [
         {
           paragraph: {
-            body: "On the frontend, the map requests only data inside the current viewport to keep interaction fast. Mobile cameras are shown as line overlays, fixed cameras as dots, and reports as clustered markers with timestamps, giving users a clear live snapshot instead of a static data dump.",
+            body: "On the frontend, the map requests only data inside the current viewport to keep interaction fast. Mobile cameras are shown as line overlays, fixed cameras as dots, and reports as clustered markers with timestamps. Users can enter report mode, tap a location, choose the camera type, and submit a new report directly on the map.",
           },
         },
       ],
