@@ -88,19 +88,9 @@ const vicCameraLocationsData: ProjectDTO = {
       cells: [
         {
           image: {
-            url: "/vic-camera-site-dots.png",
+            url: "/vic-camera-site-blueline.png",
             width: 3024,
-            height: 1724,
-          },
-        },
-      ],
-    },
-    {
-      cells: [
-        {
-          paragraph: {
-            title: "Legend",
-            body: "Red lines represent mobile speed camera roads, yellow lines represent mobile device and seatbelt camera roads, green dots represent fixed cameras, and grey outlined dots represent user-submitted report locations.",
+            height: 1728,
           },
         },
       ],
@@ -138,9 +128,19 @@ const vicCameraLocationsData: ProjectDTO = {
       cells: [
         {
           image: {
-            url: "/vic-camera-site-blueline.png",
-            width: 2880,
-            height: 1800,
+            url: "/vic-camera-site-dots.png",
+            width: 3024,
+            height: 1724,
+          },
+        },
+      ],
+    },
+    {
+      cells: [
+        {
+          paragraph: {
+            title: "Legend",
+            body: "Red lines represent mobile speed camera roads, yellow lines represent mobile device and seatbelt camera roads, green dots represent fixed cameras, and grey outlined dots represent user-submitted report locations.",
           },
         },
       ],
