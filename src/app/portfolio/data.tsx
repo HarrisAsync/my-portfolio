@@ -12,7 +12,7 @@ const tags = [
   "Go",
   "PostgreSQL",
   "Google Maps",
-  "Next.js",
+  "next.js",
   "Payload CMS",
   "Stripe",
 ];
@@ -53,7 +53,7 @@ const vicCameraLocationsData: ProjectDTO = {
         {
           paragraph: {
             title: "Project Description",
-            body: "viccam.info turns public camera data into a map you can actually use while planning a drive in Victoria. The platform combines government camera datasets with live community reports so users can quickly understand what is on their route and what has recently been seen nearby.",
+            body: "viccam turns public camera data into a map you can actually use while planning a drive in Victoria. The platform combines government camera datasets with live community reports so users can quickly understand what is on their route and what has recently been seen nearby.",
             size: "text-2xl",
           },
         },
@@ -346,8 +346,8 @@ const drowzalert: ProjectDTO = {
 };
 
 const jackTheLadCafe: ProjectDTO = {
-  name: "Jack The Lad Cafe",
-  type: "Business Website",
+  name: "jtlcafe",
+  type: "Payload CMS",
   contentHeight: 5600,
   headLineImage: {
     url: "/jtl-landing.png",
@@ -366,7 +366,7 @@ const jackTheLadCafe: ProjectDTO = {
   links: [
     {
       name: "GITHUB",
-      link: "https://github.com/HarrisAsync/jtlcafe",
+      link: "",
       private: true,
     },
     {
@@ -381,7 +381,7 @@ const jackTheLadCafe: ProjectDTO = {
         {
           paragraph: {
             title: "Project Description",
-            body: "Jack The Lad Cafe is a live hospitality business in Chelsea, Melbourne. This build focused on translating the in-store experience into a fast and trustworthy website where regulars can quickly find opening hours, browse food and merch, and book or order without friction.",
+            body: "jtlcafe is a live hospitality business in Chelsea, Melbourne. This build focused on translating the in-store experience into a fast and trustworthy website where regulars can quickly find opening hours, browse food and merch, and book or order without friction.",
             size: "text-2xl",
           },
         },
