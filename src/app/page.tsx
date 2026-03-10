@@ -34,9 +34,9 @@ const ProjectsPage = () => {
         className="font-hubot mt-10 text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl w-100 md:w-3/4"
         style={{ color: "#1944D0" }}
       >
-        I&apos;m Harris Perdis, a junior software developer with a strong
+        I&apos;m Harris Perdis, a software developer with a strong
         background in <i>Mathematics and Data Science</i>, I have spent the past
-        year working as a junior developer, focusing primarily on web
+        year working as a software developer, focusing primarily on web
         development. Throughout my academic and professional journey, I have
         demonstrated a consistent ability to develop
         <i> innovative solutions to complex problems</i> through rigorous
