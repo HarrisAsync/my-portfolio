@@ -99,6 +99,16 @@ const vicCameraLocationsData: ProjectDTO = {
       cells: [
         {
           paragraph: {
+            title: "Legend",
+            body: "Red lines represent mobile speed camera roads, yellow lines represent mobile device and seatbelt camera roads, green dots represent fixed cameras, and grey outlined dots represent user-submitted report locations.",
+          },
+        },
+      ],
+    },
+    {
+      cells: [
+        {
+          paragraph: {
             body: "During import, road and suburb pairs are deduplicated and validated before geospatial lookup. Suburb boundaries are resolved with Vicmap first and Overpass as fallback, then road geometry and fixed-camera points are attached so each map object has reliable coordinates.",
           },
         },

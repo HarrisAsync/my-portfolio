@@ -65,6 +65,7 @@ const ProjectsPage = () => {
         <div className="flex-col pt-5 pl-0 md:pt-0 md:pl-5 font-space">
           <p>[Languages]</p>
           <p>» Javascript</p>
+          <p>» Go</p>
           <p>» C#</p>
           <p>» Python</p>
           <p>» SQL</p>
