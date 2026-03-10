@@ -12,10 +12,13 @@ const tags = [
   "Go",
   "PostgreSQL",
   "Google Maps",
+  "Next.js",
+  "Payload CMS",
+  "Stripe",
 ];
 
 const vicCameraLocationsData: ProjectDTO = {
-  name: "viccam.info",
+  name: "viccam",
   type: "Go API",
   contentHeight: 4531,
   headLineImage: {
@@ -24,7 +27,7 @@ const vicCameraLocationsData: ProjectDTO = {
     height: 1728,
   },
   card: {
-    title: "viccam.info",
+    title: "viccam",
     date: "11/2025",
     slug: "vic-camera-locations",
     image: { url: "/vic-camera-site-redline.png", width: 3024, height: 1728 },
@@ -342,6 +345,135 @@ const drowzalert: ProjectDTO = {
   ],
 };
 
-const projects: ProjectDTO[] = [vicCameraLocationsData, drowzalert];
+const jackTheLadCafe: ProjectDTO = {
+  name: "Jack The Lad Cafe",
+  type: "Business Website",
+  contentHeight: 5600,
+  headLineImage: {
+    url: "/jtl-landing.png",
+    width: 3024,
+    height: 1724,
+  },
+  card: {
+    title: "jtlcafe",
+    date: "3/2026",
+    slug: "jack-the-lad-cafe",
+    image: { url: "/jtl-landing.png", width: 3024, height: 1724 },
+    tags: [tags[11], tags[0], tags[4], tags[5], tags[12], tags[13], tags[3]],
+  },
+  date: "3/2026",
+  members: ["Harris Perdis [Software Developer]"],
+  links: [
+    {
+      name: "GITHUB",
+      link: "https://github.com/HarrisAsync/jtlcafe",
+      private: true,
+    },
+    {
+      name: "WEBSITE",
+      link: "https://jtlcafe.com.au",
+      private: false,
+    },
+  ],
+  rows: [
+    {
+      cells: [
+        {
+          paragraph: {
+            title: "Project Description",
+            body: "Jack The Lad Cafe is a live hospitality business in Chelsea, Melbourne. This build focused on translating the in-store experience into a fast and trustworthy website where regulars can quickly find opening hours, browse food and merch, and book or order without friction.",
+            size: "text-2xl",
+          },
+        },
+      ],
+    },
+    {
+      cells: [
+        {
+          image: {
+            url: "/jtl-home.png",
+            width: 3024,
+            height: 1726,
+          },
+        },
+      ],
+    },
+    {
+      cells: [
+        {
+          paragraph: {
+            title: "Real Business Goals",
+            body: "Because this is a real venue operating seven days a week, the site had to support day-to-day operations instead of only looking good. The content and layout were designed to answer customer intent quickly: where the cafe is, when it is open, how to order ahead, and what can be purchased online.",
+          },
+        },
+      ],
+    },
+    {
+      cells: [
+        {
+          image: {
+            url: "/jtl-store.png",
+            width: 3024,
+            height: 1728,
+          },
+        },
+      ],
+    },
+    {
+      cells: [
+        {
+          paragraph: {
+            title: "CMS and Admin",
+            body: "Payload powers the CMS and admin workflows so staff can update menu content, manage product listings, and keep messaging current without code changes. This gives the business control over everyday updates while preserving consistent presentation across the site.",
+          },
+        },
+      ],
+    },
+    {
+      cells: [
+        {
+          image: {
+            url: "/jtl-admin.png",
+            width: 3024,
+            height: 1728,
+          },
+        },
+      ],
+    },
+    {
+      cells: [
+        {
+          paragraph: {
+            title: "Commerce and Payments",
+            body: "Stripe was integrated for secure checkout and smoother conversion on online orders and merchandise sales. The objective was to reduce purchase friction, keep payment handling reliable, and make fulfilment simpler for a small team during busy service periods.",
+          },
+        },
+      ],
+    },
+    {
+      cells: [
+        {
+          image: {
+            url: "/jtl-footer.png",
+            width: 3014,
+            height: 1726,
+          },
+        },
+      ],
+    },
+    {
+      cells: [
+        {
+          paragraph: {
+            title: "Outcome",
+            body: "The result is a production-ready digital presence that reflects the brand, supports operational needs, and connects website traffic to in-store and online revenue channels. The platform is now positioned for ongoing growth through campaign updates, new products, and seasonal content.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+const projects: ProjectDTO[] = [jackTheLadCafe, vicCameraLocationsData, drowzalert];
 
 export default projects;
