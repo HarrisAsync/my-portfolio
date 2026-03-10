@@ -19,15 +19,15 @@ const vicCameraLocationsData: ProjectDTO = {
   type: "Go API",
   contentHeight: 4531,
   headLineImage: {
-    url: "/vic-camera-site.png",
-    width: 1400,
-    height: 800,
+    url: "/vic-camera-legend.png",
+    width: 3024,
+    height: 1726,
   },
   card: {
     title: "viccam.info",
     date: "2/2025",
     slug: "vic-camera-locations",
-    image: { url: "/vic-camera-site.png", width: 1400, height: 800 },
+    image: { url: "/vic-camera-legend.png", width: 3024, height: 1726 },
     tags: [tags[8], tags[9], tags[10], tags[3], tags[4], tags[5]],
   },
   date: "2/2025",
@@ -50,7 +50,7 @@ const vicCameraLocationsData: ProjectDTO = {
         {
           paragraph: {
             title: "Project Description",
-            body: "viccam.info is a live map for Victoria road camera data. The project imports government-published camera resources, resolves each road and suburb entry into map geometry, and displays mobile camera coverage, fixed camera points, and community reports in a single interface.",
+            body: "viccam.info turns public camera data into a map you can actually use while planning a drive in Victoria. The platform combines government camera datasets and live community reports so users can quickly understand what is on their route.",
             size: "text-2xl",
           },
         },
@@ -79,7 +79,7 @@ const vicCameraLocationsData: ProjectDTO = {
         {
           paragraph: {
             title: "Architecture",
-            body: "The current version is built as a Go API with a PostgreSQL database and a lightweight map interface served directly by the backend. Import jobs scrape the source pages, download the latest spreadsheets in memory, normalise the rows, and create versioned imports so the site can always serve the newest dataset.",
+            body: "The backend is a Go API backed by PostgreSQL, and it serves both import endpoints and map data endpoints. A scheduled import flow fetches the latest source files, parses and normalises rows, and stores each run as a versioned import so the frontend always reads the newest successful dataset.",
           },
         },
       ],
@@ -88,9 +88,9 @@ const vicCameraLocationsData: ProjectDTO = {
       cells: [
         {
           image: {
-            url: "/vic-camera-legend.svg",
-            width: 1200,
-            height: 700,
+            url: "/vic-camera-legend.png",
+            width: 3024,
+            height: 1726,
           },
         },
       ],
@@ -100,9 +100,9 @@ const vicCameraLocationsData: ProjectDTO = {
       cells: [
         {
           image: {
-            url: "/vic-camera-site-redline.png",
-            width: 2880,
-            height: 1800,
+            url: "/vic-camera-site-dots.png",
+            width: 3024,
+            height: 1724,
           },
         },
       ],
@@ -111,7 +111,7 @@ const vicCameraLocationsData: ProjectDTO = {
       cells: [
         {
           paragraph: {
-            body: "After parsing the source rows, the importer deduplicates the road and suburb pairs and resolves suburb boundaries using Vicmap first, with Overpass as a fallback. Those bounds are then used to fetch road geometry and store successful and failed lookups against each import for later review.",
+            body: "During import, road and suburb pairs are deduplicated and validated before geospatial lookup. Suburb boundaries are resolved with Vicmap first and Overpass as fallback, then road geometry and fixed-camera points are attached so each map object has reliable coordinates.",
           },
         },
       ],
@@ -120,7 +120,7 @@ const vicCameraLocationsData: ProjectDTO = {
       cells: [
         {
           paragraph: {
-            body: "The frontend requests only the latest cameras inside the current map bounds and renders mobile camera roads as coloured overlays, fixed cameras as dots, and user reports as clustered markers. This keeps the map responsive while still showing the newest import timestamp and the latest public reports.",
+            body: "On the frontend, the map requests only data inside the current viewport to keep interaction fast. Mobile cameras are shown as line overlays, fixed cameras as dots, and reports as clustered markers with timestamps, giving users a clear live snapshot instead of a static data dump.",
           },
         },
       ],
@@ -151,7 +151,7 @@ const vicCameraLocationsData: ProjectDTO = {
         {
           paragraph: {
             title: "Challenges",
-            body: "A key challenge was dealing with inconsistent public source data and turning it into reliable map results. The importer has to locate the right downloadable resources from changing page markup, geocode fixed camera locations accurately, and fall back between Vicmap and Overpass whenever a suburb or road cannot be resolved cleanly.",
+            body: "The biggest challenge was data quality and consistency across sources. I had to make the importer resilient to source format changes, handle geocoding ambiguity for fixed-camera locations, and build fallbacks so missing suburb or road geometry does not break the user experience.",
           },
         },
       ],
